@@ -51,4 +51,19 @@ class TransactionController extends Controller
             'newDynamicID' => $newDynamicID
         ], 200);
     }
+    public function createCard(){
+        $newStaticID = Str::random(16);
+        $newDynamicID = Str::random(16);
+        $newBalance = 200;
+        $card = new Card;
+        $card->staticID = $newStaticID;
+        $card->dynamicID = $newDynamicID;
+        $card->balance = $newBalance;
+        $card->save();
+        return response()->json([
+            'card_id' => $newStaticID,
+            'card_dynamicId' => $newDynamicID,
+            'card_balance' => $newBalance,
+        ], 201);
+    }
 }
