@@ -19,6 +19,7 @@ class TransactionController extends Controller
             'card' => "Card #{$card->id}",
         ], 200);
     }
+    // @d2LP@$dxYlgjgwmr2nK
     public function verifyCard(request $request){
         $validated = $request->validate([
             'staticID' => 'required|exists:cards,staticID|max:255',

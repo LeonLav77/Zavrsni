@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/card/{id}', [TransactionController::class, 'card']);
+Route::get('/test', function () {
+    return response()->json('Hello World');
+});
+Route::post('/test', function () {
+    return response()->json('Hello World');
+});
