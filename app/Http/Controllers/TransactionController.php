@@ -43,7 +43,7 @@ class TransactionController extends Controller
             ], 400);
         }
         $card->balance = $card->balance - $request->price;
-        $newDynamicID = Str::random(16);
+        $newDynamicID = rand(1,10000000000000000000);
         $card->dynamicID = $newDynamicID;
         $card->save();
         return response()->json([
@@ -52,8 +52,8 @@ class TransactionController extends Controller
         ], 200);
     }
     public function createCard(){
-        $newStaticID = Str::random(16);
-        $newDynamicID = Str::random(16);
+        $newStaticID = rand(1,10000000000000000000);
+        $newDynamicID = rand(1,10000000000000000000);
         $newBalance = 200;
         $card = new Card;
         $card->staticID = $newStaticID;

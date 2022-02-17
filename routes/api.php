@@ -1,5 +1,6 @@
 <?php
 
+use App\Card;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TransactionController;
@@ -17,7 +18,7 @@ use App\Http\Controllers\TransactionController;
 
 Route::get('/card/{id}', [TransactionController::class, 'card']);
 Route::get('/test', function () {
-    return response()->json('Hello World');
+    return response()->json(Card::All());
 });
 Route::post('/test', function () {
     return response()->json('Hello World');
