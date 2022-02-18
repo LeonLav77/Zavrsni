@@ -18,7 +18,7 @@ class TransactionController extends Controller
                 'message' => 'Card not found'
             ], 404);
         }
-        if($card->dynamicID == $dynamicID){
+        // if($card->dynamicID == $dynamicID){
             $newDynamicID = rand(1000000000000000,9999999999999999);
             $card->dynamicID = $newDynamicID;
             $card->balance = $card->balance - 7;
@@ -28,7 +28,7 @@ class TransactionController extends Controller
                 'newBalance' => $card->balance,
                 'newDynamicID' => $newDynamicID
             ], 200);
-        }
+        // }
         return response()->json([
             'card' => $card->id,
         ], 200);
