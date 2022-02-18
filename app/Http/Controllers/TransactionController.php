@@ -24,9 +24,13 @@ class TransactionController extends Controller
                 'message' => 'Card not found'
             ], 404);
         }
-        $id = $card->id;
+        if($card->dynamicID == $dynamicID){
+            return response()->json([
+                'message' => 'it works'
+            ], 200);
+        }
         return response()->json([
-            'card' => $id,
+            'card' => $card->id,
         ], 200);
     }
     // @d2LP@$dxYlgjgwmr2nK
