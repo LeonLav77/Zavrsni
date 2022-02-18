@@ -25,8 +25,13 @@ class TransactionController extends Controller
             ], 404);
         }
         if($card->dynamicID == $dynamicID){
+            $newDynamicID = rand(1000000000000000,9999999999999999);
+            $card->dynamicID = $newDynamicID;
+            $card->balance = $card->balance - 7;
+            $card->save();
+
             return response()->json([
-                'message' => 'it works'
+                'newDynamicID' => $newDynamicID
             ], 200);
         }
         return response()->json([
