@@ -24,4 +24,3 @@ Route::post('/test', function () {
     return response()->json('Hello World');
 });
 Route::post('/createCard', [TransactionController::class, 'createCard']);
-Route::post('/verifyCard', [TransactionController::class, 'verifyCard']);
