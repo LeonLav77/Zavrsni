@@ -8,11 +8,16 @@ use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
-    public function card($staticID){
+    public function card($data){
+        $pieces = explode("&dynamicId=", $data);
+        $staticID = $pieces[0];
+        $dynamicID = $pieces[1];
         return response()->json([
+            'data' => $data,
             'staticID' => $staticID,
+            'dynamicID' => $dynamicID
         ]);
-        $card = Card::where('staticID', $staticID)->first();
+        $card = Card::where('data', $data)->first();
         if(!$card){
             return response()->json([
                 'message' => 'Card not found'
