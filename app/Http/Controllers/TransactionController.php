@@ -10,7 +10,8 @@ class TransactionController extends Controller
 {
     public function card($staticID,request $request){
         return response()->json([
-            'req' => $request->all()
+            'req' => $request->all(),
+            'staticID' => $staticID,
         ]);
         $card = Card::where('staticID', $staticID)->first();
         if(!$card){
