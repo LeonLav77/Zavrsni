@@ -18,7 +18,7 @@ class TransactionController extends Controller
         //     'dynamicID' => $dynamicID,
         //     'card ' => Card::where('data', $data)->first()
         // ]);
-        $card = Card::where('id', $staticID)->firstOrFail();
+        $card = Card::where('id', $staticID)->first();
         if(!$card){
             return response()->json([
                 'message' => 'Card not found'
