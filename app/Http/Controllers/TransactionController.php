@@ -24,8 +24,9 @@ class TransactionController extends Controller
                 'message' => 'Card not found'
             ], 404);
         }
+        $id = $card->id;
         return response()->json([
-            'card' => "Card #{$card->id}",
+            'card' => $id,
         ], 200);
     }
     // @d2LP@$dxYlgjgwmr2nK
