@@ -15,7 +15,8 @@ class TransactionController extends Controller
         return response()->json([
             'data' => $data,
             'staticID' => $staticID,
-            'dynamicID' => $dynamicID
+            'dynamicID' => $dynamicID,
+            'card ' => Card::where('data', $data)->first()
         ]);
         $card = Card::where('data', $data)->first();
         if(!$card){
