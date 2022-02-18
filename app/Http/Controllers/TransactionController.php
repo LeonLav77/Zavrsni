@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
-    public function card($staticID,request $request)){
+    public function card($staticID,request $request){
+        return response()->json([
+            'req' => $request->all()
+        ]);
         $card = Card::where('staticID', $staticID)->first();
         if(!$card){
             return response()->json([
@@ -17,6 +20,7 @@ class TransactionController extends Controller
         }
         return response()->json([
             'card' => "Card #{$card->id}",
+            'req' => $request->all()
         ], 200);
     }
     // @d2LP@$dxYlgjgwmr2nK
