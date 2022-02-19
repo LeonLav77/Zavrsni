@@ -21,6 +21,11 @@ class TransactionController extends Controller
         if($card->dynamicID == $dynamicID){
             $newDynamicID = rand(1000000000000000,9999999999999999);
             $card->dynamicID = $newDynamicID;
+            if($card->balance < 7){
+                return response()->json([
+                    'message' => 'Card declined'
+                ], 400);
+            }
             $card->balance = $card->balance - 7;
             $card->save();
 
